@@ -14,11 +14,14 @@ Usage:
 ```
 from hyperloglog import HyperLogLog
 
-h = HyperLogLog(14)
-for i in range(100):
+h = HyperLogLog(10)
+
+for i in range(100000):
   h.add(i)
 
 print(h.estimate())
+
+> 99860.5333365
 ```
 
 
