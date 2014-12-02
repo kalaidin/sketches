@@ -11,9 +11,9 @@ def get_first_n_bits(v, n):
     return v >> (32 - n)
 
 
-def get_left_most_position(v):
+def get_left_most_position(v, n):
     i = 1
-    while v and not v & 0x80000000:
+    while i <= n and not v & 0x80000000:
         i += 1
         v <<= 1
     return i
@@ -65,7 +65,7 @@ class HyperLogLog():
         h = self._hash_function(v)
         j = get_first_n_bits(h, self.b)
         self.registers[j] = max(self.registers[j],
-                                get_left_most_position(h << self.b))
+                                get_left_most_position(h << self.b, 32 - self.b))
 
     def estimate(self):
         raw_estimate = self.alpha * \
