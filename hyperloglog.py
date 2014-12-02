@@ -1,10 +1,7 @@
-from hashlib import sha1
 from math import log
 import unittest
 
-
-def sha1_32(v):
-    return int(sha1(str(v).encode('utf-8')).hexdigest()[:8], 16)
+from hashing import sha1_32
 
 
 def get_first_n_bits(v, n):
@@ -19,7 +16,7 @@ def get_left_most_position(v, n):
     return i
 
 
-class HyperLogLog():
+class HyperLogLog(object):
 
     def __init__(self, b, hash_function=sha1_32):
         self.b = b
