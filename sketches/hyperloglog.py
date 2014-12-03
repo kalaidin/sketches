@@ -1,7 +1,7 @@
 from math import log
 import unittest
 
-from hashing import sha1_32
+from .hashing import sha1_32
 
 
 def get_first_n_bits(v, n):
@@ -62,7 +62,8 @@ class HyperLogLog(object):
         h = self._hash_function(v)
         j = get_first_n_bits(h, self.b)
         self.registers[j] = max(self.registers[j],
-                                get_left_most_position(h << self.b, 32 - self.b))
+                                get_left_most_position(h << self.b,
+                                                       32 - self.b))
 
     def estimate(self):
         raw_estimate = self.alpha * \

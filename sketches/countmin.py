@@ -1,6 +1,6 @@
 import numpy as np
 import unittest
-from hashing import sha1_32
+from .hashing import sha1_32
 
 
 class CountMin(object):

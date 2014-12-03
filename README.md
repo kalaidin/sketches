@@ -3,6 +3,12 @@ sketches
 
 aka Probabilistic data structures for mining in data streams, in pure Python.
 
+Installation
+------------
+```
+python setup.py install
+```
+
 
 HyperLogLog
 -----------
@@ -12,7 +18,7 @@ More on: http://research.neustar.biz/tag/hyperloglog/
 
 Usage:
 ```
-from hyperloglog import HyperLogLog
+from sketches import HyperLogLog
 
 h = HyperLogLog(10)
 
@@ -32,7 +38,7 @@ More on: https://sites.google.com/site/countminsketch/
 
 Usage:
 ```
-from countmin import CountMin
+from sketches import CountMin
 
 s = CountMin(10, 10)
 data = np.random.zipf(2, 10000)
